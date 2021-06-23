@@ -1,0 +1,29 @@
+{
+  "name": "swagger-ui-cli-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "yaml,yml",
+      "quiet": false,
+      "delay": 500
+    }
+  },
+  "scripts": {
+    "test": "swagger-cli validate /example/dist/openapi.yaml",
+    "build": "swagger-cli bundle example/src/openapi.yaml --outfile example/dist/openapi.yaml --type yaml && cp dist/openapi.yaml swagger-ui/openapi.yaml",
+    "watch": "npm-watch",
+    "serve": "http-server ./swagger-ui -c-1 -s"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "http-server": "^0.12.3",
+    "npm-watch": "^0.10.0"
+  }
+}
