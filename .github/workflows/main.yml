@@ -31,14 +31,18 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1
 
+      - uses: little-core-labs/get-git-tag@v3.0.1
+        id: tagName
+
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          tagname: ${{ steps.tagName.outputs.tag }}
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swagger-ui-cli-builder:${{ github.ref }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swagger-ui-cli-builder:$GIT_TAG_NAME
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
