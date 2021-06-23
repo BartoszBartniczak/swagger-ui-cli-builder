@@ -33,6 +33,9 @@ jobs:
 
       - uses: little-core-labs/get-git-tag@v3.0.1
         id: tagName
+        with:
+          tagRegex: ''
+          tagRegexGroup: '1'
 
       - name: Build and push
         id: docker_build
