@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "swagger-cli validate /app/openapi.yaml",
-    "build": "swagger-cli bundle /app/src/openapi.yaml --outfile /app/openapi.yaml --type yaml",
+    "build": "swagger-cli bundle /app/src/openapi.yaml --outfile /app/swagger-ui/openapi.yaml --type yaml",
     "watch": "npm-watch",
     "serve": "http-server ./swagger-ui -c-1 -s"
   },

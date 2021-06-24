@@ -9,4 +9,4 @@ Mount your source files to `/app/src` directory
 
 ## Target
 
-Output file is generated under `/app/openapi.yaml` 
+Output file is generated under `/app/swagger-ui/openapi.yaml` 
